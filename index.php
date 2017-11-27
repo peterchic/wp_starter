@@ -1,29 +1,17 @@
-<?php get_header() ?>
-<div class="col-sm-8 blog-main">
-<?php 
-if( have_posts()){
-while( have_posts()) : the_posts()
-?>
-<div class="blog-posts">
-    <h2 class="blog-post-title">
-        <?php the_title(); ?>
-    </h2>
-    <p class="blog-post-meta">
-        <?php the_date() ?> by <?php the_author() ?>
-    </p>
-    <?php the_content() ?>
-</div> <!-- blog.post -->
-<?php 
-endwhile
-}
-?>
+<?php
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
 
-<nav>
-    <ul class="paper">
-        <li><?php next_posts_link('Previous') ?></li>
-        <li><?php previous_posts_link('Next') ?></li>
-    </ul>
-</nav>
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define('WP_USE_THEMES', true);
 
-</div> <!-- .blog-main -->
-<?php get_footer() ?>
+/** Loads the WordPress Environment and Template */
+require( dirname( __FILE__ ) . '/wp-blog-header.php' );
